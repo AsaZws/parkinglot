@@ -1,15 +1,16 @@
 <template>
   <div id="app">
-    <index safe-area-inset-bottom />
+    <router-view/>
+    <tabbar safe-area-inset-bottom />
   </div>
 </template>
 <script>
-import Index from 'views/index/Index';
+import Tabbar from 'components/tabbar/Tabbar';
 
 export default {
   name: 'app',
   components: {
-    Index
+    Tabbar
   }
 }
 </script>

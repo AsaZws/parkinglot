@@ -18,8 +18,9 @@ export default {
   data() {
     return {
       SwiperImg: [
-        "https://img.yzcdn.cn/vant/apple-1.jpg",
-        "https://img.yzcdn.cn/vant/apple-2.jpg"
+        require("assets/images/swiper-1.png"),
+        require("assets/images/swiper-2.png"),
+        require("assets/images/swiper-3.png")
       ]
     }
   }
@@ -29,7 +30,7 @@ export default {
    .swiper {
      width: 100%;
 		 img {
-			 width: 100%;
+			width: 100%;
      	height: 12rem;
 		 }
   }

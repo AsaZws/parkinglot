@@ -1,18 +1,18 @@
 <template>
   <div id="index">
-    <swipe></swipe>
-    <tabbar safe-area-inset-bottom />
+    <swipe />
+    <grid />
   </div>
 </template>
 <script>
 import Swipe from 'components/swipe/Swipe';
-import Tabbar from 'components/tabbar/Tabbar';
+import Grid from './grid/Grid';
 
 export default {
   name: 'index',
   components: {
     Swipe,
-    Tabbar
+    Grid
   }
 }
 </script>
