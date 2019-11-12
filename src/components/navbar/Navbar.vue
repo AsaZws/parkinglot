@@ -1,7 +1,6 @@
 <template>
   <div class="navbar">
-    <van-nav-bar fixed title="钱包" left-text="返回" left-arrow>
-      <!-- <van-icon name="search" slot="right" /> -->
+    <van-nav-bar fixed title="钱包" right-text="设置">
     </van-nav-bar>
   </div>
 </template>
