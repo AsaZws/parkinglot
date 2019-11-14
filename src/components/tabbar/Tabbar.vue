@@ -20,16 +20,16 @@ export default {
   data() {
     return {
       active: 0,
-      names: this.$route.meta.key,
+      names: this.$route.name,
       tabbars: [
         {
-          name: "/index",
+          name: "index",
           title: "服务",
           active: require('assets/images/home-on.png'),
           inactive: require('assets/images/home-off.png')
         },
         {
-          name: "/wallet",
+          name: "wallet",
           title: "钱包",
           active: require('assets/images/nav-my-on.png'),
           inactive: require('assets/images/nav-my-off.png')
@@ -38,13 +38,13 @@ export default {
     }
   },
   watch: {
-    names() {
-      console.log(this.$route.meta);
+    names: function () {
+      console.log(this.$route.name);
     }
   },
     //通过路由跳转判断选中的样式
   created() {
-    console.log(this.names);
+      console.log(this.$route.name);
     if (this.$route.name == "index") {
       this.active = 0;
     } else if (this.$route.name == "wallet") {
@@ -52,7 +52,8 @@ export default {
     }
   },
   updated() {
-    console.log(this.$route.name);
+      console.log(this.$route.name);
+    // console.log(this.$route.name);
   }
 };
 </script>
