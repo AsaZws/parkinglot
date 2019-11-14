@@ -23,7 +23,7 @@ export default {
       tabbars: [
         {
           name: "/index",
-          title: "主页",
+          title: "服务",
           active: require('assets/images/home-on.png'),
           inactive: require('assets/images/home-off.png')
         },
@@ -37,8 +37,8 @@ export default {
     }
   },
     //通过路由跳转判断选中的样式
-  beforeCreate() {
-    console.log(this.$route.path);
+  created() {
+    console.log(this.$route.name);
     
     if (this.$route.name == "index") {
       this.active = 0;
@@ -46,10 +46,26 @@ export default {
       this.active = 1;
     }
   },
-  updated() {
-    console.log(this.$route.path);
+  updated: function () {
+    console.log(this.$route.name);
+    if (this.$route.name == "index") {
+      this.active = 0;
+    } else if (this.$route.name == "wallet") {
+      this.active = 1;
+    }
   }
 };
 </script>
 <style lang="less" scoped>
+.tabbar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+@supports (bottom: env(safe-area-inset-bottom)) {
+  .tabbar {
+    margin-bottom: env(safe-area-inset-bottom);
+  }
+}
 </style>

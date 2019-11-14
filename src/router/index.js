@@ -8,23 +8,40 @@ Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '',
-    redirect: '/index'
+    path: '/',
+    redirect: '/index',
+    meta: {
+      title: '服务'
+    }
   },
   {
     path: '/index',
-    component: Index
+    name: 'index',
+    component: Index,
+    meta: {
+      title: '服务'
+    }
   },
   {
     path: '/wallet',
-    component: Wallet
+    name: 'wallet',
+    component: Wallet,
+    meta: {
+      title: '钱包'
+    }
   }
 ]
 
 const router = new VueRouter({
   mode: 'history',
-  // base: process.env.BASE_URL,
+  base: process.env.BASE_URL,
   routes
 })
-
+router.beforeEach((to,form,next) =>{
+  /*路由变化修改title*/
+  if(to.meta.title){
+      document.title=to.meta.title
+  }
+  next();
+})
 export default router
