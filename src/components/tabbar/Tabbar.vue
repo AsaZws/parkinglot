@@ -20,6 +20,7 @@ export default {
   data() {
     return {
       active: 0,
+      names: this.$route.meta.key,
       tabbars: [
         {
           name: "/index",
@@ -36,23 +37,22 @@ export default {
       ]
     }
   },
+  watch: {
+    names() {
+      console.log(this.$route.meta);
+    }
+  },
     //通过路由跳转判断选中的样式
   created() {
-    console.log(this.$route.name);
-    
+    console.log(this.names);
     if (this.$route.name == "index") {
       this.active = 0;
     } else if (this.$route.name == "wallet") {
       this.active = 1;
     }
   },
-  updated: function () {
+  updated() {
     console.log(this.$route.name);
-    if (this.$route.name == "index") {
-      this.active = 0;
-    } else if (this.$route.name == "wallet") {
-      this.active = 1;
-    }
   }
 };
 </script>

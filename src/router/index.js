@@ -11,7 +11,8 @@ const routes = [
     path: '/',
     redirect: '/index',
     meta: {
-      title: '服务'
+      title: '服务',
+      key: 0
     }
   },
   {
@@ -19,7 +20,8 @@ const routes = [
     name: 'index',
     component: Index,
     meta: {
-      title: '服务'
+      title: '服务',
+      key: 0
     }
   },
   {
@@ -27,7 +29,8 @@ const routes = [
     name: 'wallet',
     component: Wallet,
     meta: {
-      title: '钱包'
+      title: '钱包',
+      key: 1
     }
   }
 ]

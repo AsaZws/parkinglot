@@ -17,6 +17,6 @@ export default {
 
 <style lang="less">
 body {
-  background-color: #f5f5f5;
+  background-color: #F6F8FA;
 }
 </style>
