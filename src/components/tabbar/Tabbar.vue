@@ -20,7 +20,6 @@ export default {
   data() {
     return {
       active: 0,
-      names: this.$route.name,
       tabbars: [
         {
           name: "index",
@@ -38,22 +37,18 @@ export default {
     }
   },
   watch: {
-    names: function () {
-      console.log(this.$route.name);
+    '$route' (to, from) {
+      this.active = to.meta.key;
     }
   },
     //通过路由跳转判断选中的样式
   created() {
-      console.log(this.$route.name);
+      console.log(this.$route);
     if (this.$route.name == "index") {
       this.active = 0;
     } else if (this.$route.name == "wallet") {
       this.active = 1;
     }
-  },
-  updated() {
-      console.log(this.$route.name);
-    // console.log(this.$route.name);
   }
 };
 </script>
