@@ -11,7 +11,6 @@
 <script>
 import Vue from 'vue';
 import { Tabbar, TabbarItem } from 'vant';
-import { log } from 'util';
 
 Vue.use(Tabbar).use(TabbarItem);
 
@@ -37,13 +36,13 @@ export default {
     }
   },
   watch: {
+    // 跳转路由的时候监听一次路由的key值
     '$route' (to, from) {
       this.active = to.meta.key;
     }
   },
-    //通过路由跳转判断选中的样式
   created() {
-      console.log(this.$route);
+    //通过路由跳转判断选中的样式
     if (this.$route.name == "index") {
       this.active = 0;
     } else if (this.$route.name == "wallet") {
