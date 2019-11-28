@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 
 const Index = () => import('views/index/Index');
 const Wallet = () => import('views/wallet/Wallet');
+const Resume = () => import('views/wallet/resume/Resume');
 
 Vue.use(VueRouter)
 
@@ -31,7 +32,14 @@ const routes = [
     meta: {
       title: '钱包',
       key: 1
-    }
+    },
+    children: [
+      {
+        path: 'resume',
+        name: 'resume',
+        component: Resume
+      }
+    ]
   }
 ]
 
@@ -40,11 +48,13 @@ const router = new VueRouter({
   base: process.env.BASE_URL,
   routes
 })
+
 router.beforeEach((to,form,next) =>{
-  /*路由变化修改title*/
+  // 路由改变title跟着改变
   if(to.meta.title){
       document.title=to.meta.title
   }
   next();
 })
+
 export default router

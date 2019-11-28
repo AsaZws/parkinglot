@@ -4,14 +4,17 @@
     <!-- 头像 -->
     <van-row type="flex" justify="center" class="head-portrait">
       <van-col span="12">
-        <van-image
-          class="head-img"
-          round
-          width="5.2rem"
-          height="5.2rem"
-          :src="userinfo.headImg"
-        />
-        <div class="van-ellipsis">{{ userinfo.title }}</div>
+        <!-- <router-link to="/wallet/resume"> -->
+          <van-image
+            class="head-img"
+            round
+            width="5.2rem"
+            height="5.2rem"
+            @click="resume"
+            :src="userinfo.headImg"
+          />
+          <div class="van-ellipsis">{{ userinfo.title }}</div>
+        <!-- </router-link> -->
       </van-col>
     </van-row>
     <div class="van-hairline--bottom"></div>
@@ -19,15 +22,15 @@
     <van-row type="flex" justify="space-around" class="head-massage">
       <van-col span="8" class="head-massage1">
         <p>钱包余额</p>
-        <h3>{{ userinfo.wallet }}元</h3>
+        <h3>{{ userinfo.walletBalance }}元</h3>
       </van-col>
       <van-col span="8" class="head-massage2">
         <p>已绑定车辆</p>
-        <h3>{{ userinfo.fewCar }}辆</h3>
+        <h3>{{ userinfo.bindingPlates }}辆</h3>
       </van-col>
       <van-col span="8" class="head-massage3">
         <p>剩余时长</p>
-        <h3>{{ userinfo.residueTime }}小时</h3>
+        <h3>{{ userinfo.timeRemaining }}小时</h3>
       </van-col>
     </van-row>
 
@@ -40,12 +43,15 @@
       <van-cell title="通知设置" size="large" clickable is-link :icon="mainMenu.informImg" />
       <van-cell title="意见反馈" size="large" :clickable="true" is-link :icon="mainMenu.ideaImg" />
     </div>
+    
+    <router-view/>
     <!-- 底部占位 -->
     <div style="height:50px;"></div>
   </div>
 </template>
 <script>
 import Vue from 'vue';
+import Store from 'store/index';
 import Navbar from 'components/navbar/Navbar';
 import { Image, Row, Col, Cell, CellGroup } from 'vant';
 
@@ -62,9 +68,9 @@ export default {
       userinfo: {
         title: "拾光",
         headImg: require('assets/images/logo.png'),
-        wallet: 180,
-        fewCar: 2,
-        residueTime: 0.02
+        walletBalance: Store.state.walletBalance,  // 钱包余额
+        bindingPlates: Store.state.bindingPlates,  // 绑定车牌数
+        timeRemaining: Store.state.timeRemaining  //剩余停车时长
       },
       mainMenu: {
         walletImg: require('assets/images/wallet.png'),
@@ -72,6 +78,13 @@ export default {
         informImg: require('assets/images/inform.png'),
         ideaImg: require('assets/images/idea.png'),
       }
+    }
+  },
+  methods: {
+    resume() {
+      this.$router.push({
+        path: '/wallet/resume'
+      })
     }
   }
 }

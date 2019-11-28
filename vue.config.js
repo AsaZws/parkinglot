@@ -12,6 +12,7 @@ module.exports = {
             .set('assets', resolve('src/assets'))
             .set('static', resolve('src/static'))
             .set('components', resolve('src/components'))
-            .set('views', resolve('src/views'));
+            .set('views', resolve('src/views'))
+            .set('store', resolve('src/store'));
     }
 }
