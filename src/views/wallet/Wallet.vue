@@ -44,7 +44,6 @@
       <van-cell title="意见反馈" size="large" :clickable="true" is-link :icon="mainMenu.ideaImg" />
     </div>
     
-    <router-view/>
     <!-- 底部占位 -->
     <div style="height:50px;"></div>
   </div>

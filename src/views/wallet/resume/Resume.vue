@@ -1,6 +1,6 @@
 <template>
   <div id="resume">
-    <router-view/>
+    <router-view></router-view>
     子页面
     <van-cell-group title="分组1">
       <van-cell title="单元格" value="内容" />
