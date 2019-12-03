@@ -1,68 +1,66 @@
 <template>
   <div id="wallet">
-    <!-- <navbar/> -->
-    <!-- 头像 -->
-    <van-row type="flex" justify="center" class="head-portrait">
-      <van-col span="12">
-        <!-- <router-link to="/wallet/resume"> -->
-          <van-image
-            class="head-img"
-            round
-            width="5.2rem"
-            height="5.2rem"
-            @click="resume"
-            :src="userinfo.headImg"
-          />
-          <div class="van-ellipsis">{{ userinfo.title }}</div>
-        <!-- </router-link> -->
-      </van-col>
-    </van-row>
-    <div class="van-hairline--bottom"></div>
-    <!-- 数据展示 -->
-    <van-row type="flex" justify="space-around" class="head-massage">
-      <van-col span="8" class="head-massage1">
-        <p>钱包余额</p>
-        <h3>{{ userinfo.walletBalance }}元</h3>
-      </van-col>
-      <van-col span="8" class="head-massage2">
-        <p>已绑定车辆</p>
-        <h3>{{ userinfo.bindingPlates }}辆</h3>
-      </van-col>
-      <van-col span="8" class="head-massage3">
-        <p>剩余时长</p>
-        <h3>{{ userinfo.timeRemaining }}小时</h3>
-      </van-col>
-    </van-row>
+    <div class="wallet-index" v-show="showOk">
+      <!-- 头像 -->
+      <van-row type="flex" justify="center" class="head-portrait">
+        <van-col span="12">
+          <!-- <router-link to="/wallet/resume"> -->
+            <van-image
+              class="head-img"
+              round
+              width="5.2rem"
+              height="5.2rem"
+              @click="resume"
+              :src="userinfo.headImg"
+            />
+            <div class="van-ellipsis">{{ userinfo.title }}</div>
+          <!-- </router-link> -->
+        </van-col>
+      </van-row>
+      <div class="van-hairline--bottom"></div>
+      <!-- 数据展示 -->
+      <van-row type="flex" justify="space-around" class="head-massage">
+        <van-col span="8" class="head-massage1">
+          <p>钱包余额</p>
+          <h3>{{ userinfo.walletBalance }}元</h3>
+        </van-col>
+        <van-col span="8" class="head-massage2">
+          <p>已绑定车辆</p>
+          <h3>{{ userinfo.bindingPlates }}辆</h3>
+        </van-col>
+        <van-col span="8" class="head-massage3">
+          <p>剩余时长</p>
+          <h3>{{ userinfo.timeRemaining }}小时</h3>
+        </van-col>
+      </van-row>
 
-    <!-- 个人菜单 -->
-    <div class="main-menu">
-      <van-cell title="电子钱包" size="large" clickable is-link to="index" :icon="mainMenu.walletImg" />
-      <van-cell title="电子发票" size="large" clickable is-link :icon="mainMenu.invoiceImg" />
+      <!-- 个人菜单 -->
+      <div class="main-menu">
+        <van-cell title="电子钱包" size="large" clickable is-link to="index" :icon="mainMenu.walletImg" />
+        <van-cell title="电子发票" size="large" clickable is-link :icon="mainMenu.invoiceImg" />
+      </div>
+      <div class="main-menu">
+        <van-cell title="通知设置" size="large" clickable is-link :icon="mainMenu.informImg" />
+        <van-cell title="意见反馈" size="large" :clickable="true" is-link :icon="mainMenu.ideaImg" />
+      </div>
+      <!-- 底部占位 -->
+      <div style="height:50px;"></div>
     </div>
-    <div class="main-menu">
-      <van-cell title="通知设置" size="large" clickable is-link :icon="mainMenu.informImg" />
-      <van-cell title="意见反馈" size="large" :clickable="true" is-link :icon="mainMenu.ideaImg" />
-    </div>
-    
-    <!-- 底部占位 -->
-    <div style="height:50px;"></div>
+    <router-view></router-view>
   </div>
 </template>
 <script>
 import Vue from 'vue';
 import Store from 'store/index';
-import Navbar from 'components/navbar/Navbar';
 import { Image, Row, Col, Cell, CellGroup } from 'vant';
 
 Vue.use(Image).use(Row).use(Col).use(Cell).use(CellGroup);
 
 export default {
   name: 'wallet',
-  components: {
-    Navbar
-  },
   data() {
     return {
+      showOk: true,
       // 用户信息
       userinfo: {
         title: "拾光",
@@ -81,6 +79,7 @@ export default {
   },
   methods: {
     resume() {
+      this.showOk = !this.showOk;
       this.$router.push({
         path: '/wallet/resume'
       })

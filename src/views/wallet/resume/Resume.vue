@@ -1,7 +1,13 @@
 <template>
   <div id="resume">
-    <router-view></router-view>
-    子页面
+    <van-nav-bar
+      title="标题"
+      left-text="返回"
+      right-text="按钮"
+      left-arrow
+      @click-left="onClickLeft"
+      @click-right="onClickRight"
+    />
     <van-cell-group title="分组1">
       <van-cell title="单元格" value="内容" />
     </van-cell-group>
@@ -13,9 +19,9 @@
 <script>
 import Vue from 'vue';
 import Store from 'store/index';
-import { Cell, CellGroup } from 'vant';
+import { NavBar, Cell, CellGroup } from 'vant';
 
-Vue.use(Cell).use(CellGroup);
+Vue.use(NavBar).use(Cell).use(CellGroup);
 
 export default {
   name: 'resume',
@@ -29,5 +35,9 @@ export default {
 </script>
 
 <style lang="less">
-
+#resume {
+  .navbar {
+    margin-bottom: 50px;
+  }
+}
 </style>

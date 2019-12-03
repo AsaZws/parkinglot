@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 
 const Index = () => import('views/index/Index');
 const Wallet = () => import('views/wallet/Wallet');
+// 钱包下二级路由
 const Resume = () => import('views/wallet/resume/Resume');
 
 Vue.use(VueRouter)
@@ -35,9 +36,13 @@ const routes = [
     },
     children: [
       {
-        path: 'resume',
+        path: '/wallet/resume',
         name: 'resume',
-        component: Resume
+        component: Resume,
+        meta: {
+          title: '个人信息',
+          key: 0
+        }
       }
     ]
   }
