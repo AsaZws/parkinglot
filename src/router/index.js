@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 
 const Index = () => import('views/index/Index');
 const Wallet = () => import('views/wallet/Wallet');
+const Home = () => import('views/home/Home');
 // 钱包下二级路由
 const Resume = () => import('views/wallet/resume/Resume');
 

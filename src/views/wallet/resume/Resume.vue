@@ -6,7 +6,6 @@
       right-text="按钮"
       left-arrow
       @click-left="onClickLeft"
-      @click-right="onClickRight"
     />
     <van-cell-group title="分组1">
       <van-cell title="单元格" value="内容" />
@@ -29,6 +28,11 @@ export default {
   },
   data() {
     return {
+    }
+  },
+  methods: {
+    onClickLeft() {
+      this.$router.go(-1);
     }
   }
 }

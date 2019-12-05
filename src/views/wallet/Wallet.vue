@@ -77,9 +77,23 @@ export default {
       }
     }
   },
+  created() {
+    if(this.$route.path == '/wallet') {
+      this.showOk = true;
+    } else {
+      this.showOk = false;
+    }
+  },
+  watch:{
+    '$route.path': function(newVal, oldVal) {
+      if(newVal == '/wallet') {
+        this.showOk = true;
+      }
+    }
+  },
   methods: {
     resume() {
-      this.showOk = !this.showOk;
+      this.showOk = false;
       this.$router.push({
         path: '/wallet/resume'
       })
