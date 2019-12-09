@@ -6,6 +6,7 @@ const Wallet = () => import('views/wallet/Wallet');
 const Home = () => import('views/home/Home');
 // 钱包下二级路由
 const Resume = () => import('views/wallet/resume/Resume');
+const Ewallet = () => import('views/wallet/ewallet/Ewallet');
 
 Vue.use(VueRouter)
 
@@ -42,9 +43,18 @@ const routes = [
         component: Resume,
         meta: {
           title: '个人信息',
-          key: 0
+          key: 10
         }
-      }
+      },
+      {
+        path: '/wallet/ewallet',
+        name: 'Ewallet',
+        component: Ewallet,
+        meta: {
+          title: '电子钱包',
+          key: 11
+        }
+      },
     ]
   }
 ]

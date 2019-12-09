@@ -36,7 +36,7 @@
 
       <!-- 个人菜单 -->
       <div class="main-menu">
-        <van-cell title="电子钱包" size="large" clickable is-link to="index" :icon="mainMenu.walletImg" />
+        <van-cell title="电子钱包" size="large" clickable is-link to="/wallet/ewallet" :icon="mainMenu.walletImg" />
         <van-cell title="电子发票" size="large" clickable is-link :icon="mainMenu.invoiceImg" />
       </div>
       <div class="main-menu">
@@ -51,6 +51,7 @@
 </template>
 <script>
 import Vue from 'vue';
+
 import Store from 'store/index';
 import { Image, Row, Col, Cell, CellGroup } from 'vant';
 
@@ -58,6 +59,9 @@ Vue.use(Image).use(Row).use(Col).use(Cell).use(CellGroup);
 
 export default {
   name: 'wallet',
+  components: {
+    
+  },
   data() {
     return {
       showOk: true,
