@@ -1,26 +1,31 @@
 <template>
   <div id="resume">
     <van-nav-bar
-      title="标题"
+      title="我的信息"
       left-text="返回"
-      right-text="按钮"
       left-arrow
       @click-left="onClickLeft"
     />
-    <van-cell-group title="分组1">
-      <van-cell title="单元格" value="内容" />
-    </van-cell-group>
-    <van-cell-group title="分组2">
-      <van-cell title="单元格" value="内容" />
-    </van-cell-group>
+    <div class="resume">
+      <van-cell-group class="resume-magges">
+        <van-cell title="头像" value="内容" />
+      </van-cell-group>
+      <van-cell-group class="resume-magges">
+        <van-cell title="昵称" value="拾光" />
+        <van-cell title="性别" value="男" />
+        <van-cell title="电话号码" value="17764810319" />
+        <van-cell title="国家" value="中国-重庆" />
+      </van-cell-group>
+      <van-button style="margin-top: 24px;" type="primary" size="large" color="#5093FF">获取微信头像与昵称</van-button>
+    </div>
   </div>
 </template>
 <script>
 import Vue from 'vue';
 import Store from 'store/index';
-import { NavBar, Cell, CellGroup } from 'vant';
+import { NavBar, Cell, CellGroup, Button } from 'vant';
 
-Vue.use(NavBar).use(Cell).use(CellGroup);
+Vue.use(NavBar).use(Cell).use(CellGroup).use(Button);
 
 export default {
   name: 'resume',
@@ -40,8 +45,11 @@ export default {
 
 <style lang="less">
 #resume {
-  .navbar {
-    margin-bottom: 50px;
+  .resume {
+    padding: 16px;
+    .resume-magges {
+      margin-bottom: 10px;
+    }
   }
 }
 </style>

@@ -5,6 +5,7 @@ const Index = () => import('views/index/Index');
 const Wallet = () => import('views/wallet/Wallet');
 const Home = () => import('views/home/Home');
 // 钱包下二级路由
+const walletIndex = () => import('views/wallet/index/Index');
 const Resume = () => import('views/wallet/resume/Resume');
 const Ewallet = () => import('views/wallet/ewallet/Ewallet');
 
@@ -30,29 +31,33 @@ const routes = [
   },
   {
     path: '/wallet',
-    name: 'wallet',
     component: Wallet,
-    meta: {
-      title: '钱包',
-      key: 1
-    },
     children: [
       {
-        path: '/wallet/resume',
+        path: '/wallet',
+        name: 'walletIndex',
+        component: walletIndex,
+        meta: {
+          title: '钱包',
+          key: 1
+        }
+      },
+      {
+        path: 'resume',
         name: 'resume',
         component: Resume,
         meta: {
           title: '个人信息',
-          key: 10
+          key: 1
         }
       },
       {
-        path: '/wallet/ewallet',
-        name: 'Ewallet',
+        path: 'ewallet',
+        name: 'ewallet',
         component: Ewallet,
         meta: {
           title: '电子钱包',
-          key: 11
+          key: 1
         }
       },
     ]
