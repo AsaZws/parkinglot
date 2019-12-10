@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-    <router-view></router-view>
+    <transition name="router-fade" mode="out-in">
+      <router-view></router-view>
+    </transition>
     <tabbar safe-area-inset-bottom />
   </div>
 </template>
@@ -18,5 +20,11 @@ export default {
 <style lang="less">
 body {
   background-color: #F6F8FA;
+	.router-fade-enter-active, .router-fade-leave-active {
+	  	transition: opacity .2s;
+	}
+	.router-fade-enter, .router-fade-leave-active {
+	  	opacity: 0;
+	}
 }
 </style>

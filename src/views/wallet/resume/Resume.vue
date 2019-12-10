@@ -53,6 +53,13 @@ export default {
 
 <style lang="less">
 #resume {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #F6F8FA;
+  z-index: 9;
   .resume {
     padding: 16px;
     .resume-magges {
