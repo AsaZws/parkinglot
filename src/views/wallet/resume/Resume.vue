@@ -8,7 +8,15 @@
     />
     <div class="resume">
       <van-cell-group class="resume-magges">
-        <van-cell title="头像" value="内容" />
+        <van-cell title="头像">
+          <van-image
+            round
+            width="3.2rem"
+            height="3.2rem"
+            :src="require('assets/images/logo.png')"
+            style="margin-bottom: -7px;"
+          />
+        </van-cell>
       </van-cell-group>
       <van-cell-group class="resume-magges">
         <van-cell title="昵称" value="拾光" />
@@ -23,9 +31,9 @@
 <script>
 import Vue from 'vue';
 import Store from 'store/index';
-import { NavBar, Cell, CellGroup, Button } from 'vant';
+import { Image, NavBar, Cell, CellGroup, Button } from 'vant';
 
-Vue.use(NavBar).use(Cell).use(CellGroup).use(Button);
+Vue.use(Image).use(NavBar).use(Cell).use(CellGroup).use(Button);
 
 export default {
   name: 'resume',
@@ -49,6 +57,10 @@ export default {
     padding: 16px;
     .resume-magges {
       margin-bottom: 10px;
+      .van-cell__title {
+        display: flex;
+        align-items: center;
+      }
     }
   }
 }

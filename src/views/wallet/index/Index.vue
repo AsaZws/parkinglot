@@ -51,9 +51,9 @@
 import Vue from 'vue';
 
 import Store from 'store/index';
-import { Image, Row, Col, Cell, CellGroup } from 'vant';
+import { Image, Row, Col, Cell, CellGroup, Overlay, Loading } from 'vant';
 
-Vue.use(Image).use(Row).use(Col).use(Cell).use(CellGroup);
+Vue.use(Image).use(Row).use(Col).use(Cell).use(CellGroup).use(Overlay).use(Loading);
 
 export default {
   name: 'wallet',
@@ -62,6 +62,7 @@ export default {
   },
   data() {
     return {
+      show: false,
       // 用户信息
       userinfo: {
         title: "拾光",
@@ -138,6 +139,18 @@ export default {
       width: 24px;
       height: 24px;
     }
+  }
+  .wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+  }
+
+  .block {
+    width: 120px;
+    height: 120px;
+    background-color: #fff;
   }
 }
 </style>
