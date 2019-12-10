@@ -8,6 +8,7 @@ const Wallet = () => import('views/wallet/Wallet');
 // const walletIndex = () => import('views/wallet/index/Index');
 const Resume = () => import('views/wallet/resume/Resume');
 const Ewallet = () => import('views/wallet/ewallet/Ewallet');
+const Invoice = () => import('views/wallet/invoice/Invoice');
 
 Vue.use(VueRouter)
 
@@ -41,6 +42,10 @@ const routes = [
         path: 'ewallet',
         component: Ewallet
       },
+      {
+        path: 'invoice',
+        component: Invoice
+      }
     ]
   }
 ]

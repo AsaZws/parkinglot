@@ -36,7 +36,7 @@
       <!-- 个人菜单 -->
       <div class="main-menu">
         <van-cell title="电子钱包" size="large" clickable is-link to="/wallet/ewallet" :icon="mainMenu.walletImg" />
-        <van-cell title="电子发票" size="large" clickable is-link :icon="mainMenu.invoiceImg" />
+        <van-cell title="电子发票" size="large" clickable is-link to="/wallet/invoice" :icon="mainMenu.invoiceImg" />
       </div>
       <div class="main-menu">
         <van-cell title="通知设置" size="large" clickable is-link :icon="mainMenu.informImg" />
