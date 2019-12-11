@@ -39,8 +39,8 @@
         <van-cell title="电子发票" size="large" clickable is-link to="/wallet/invoice" :icon="mainMenu.invoiceImg" />
       </div>
       <div class="main-menu">
-        <van-cell title="通知设置" size="large" clickable is-link :icon="mainMenu.informImg" />
-        <van-cell title="意见反馈" size="large" :clickable="true" is-link :icon="mainMenu.ideaImg" />
+        <van-cell title="通知设置" size="large" clickable is-link to="/wallet/inform" :icon="mainMenu.informImg" />
+        <van-cell title="意见反馈" size="large" clickable is-link to="/wallet/opinion" :icon="mainMenu.ideaImg" />
       </div>
       <!-- 底部占位 -->
       <div style="height:50px;"></div>

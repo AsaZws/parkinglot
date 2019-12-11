@@ -10,11 +10,14 @@
     </div>
     <!-- 主内容 -->
     <div class="container">
-      <van-cell 
-        title="欢迎使用前海SPOM智慧终端" 
-        class="title"
-        :border="false" 
-        :icon="inform" />
+      <van-notice-bar
+        color="#1989fa"
+        background="#ecf9ff"
+        :left-icon="inform"
+        scrollable
+      >
+        欢迎使用前海SPOM智慧终端！
+      </van-notice-bar>
     </div>
     <!-- 菜单 -->
     <van-grid 
@@ -40,8 +43,8 @@
 <script>
 import Vue from 'vue';
 
-import { Swipe, SwipeItem, Grid, GridItem, Cell, CellGroup } from 'vant';
-Vue.use(Swipe).use(SwipeItem).use(Grid).use(GridItem).use(Cell).use(CellGroup);
+import { Swipe, SwipeItem, Grid, GridItem, NoticeBar, CellGroup } from 'vant';
+Vue.use(Swipe).use(SwipeItem).use(Grid).use(GridItem).use(NoticeBar).use(CellGroup);
 
 export default {
   name: 'index',
@@ -90,19 +93,15 @@ export default {
 #index {
   .swiper {
     width: 100%;
-    img {
-      width: 100%;
-      height: 12rem;
+    .van-swipe-item {
+      img {
+        width: 100%;
+        height: 100%;
+      }
     }
   }
   .container {
-    padding: 4px 10px;
-    .title {
-      padding: 4px 8px;
-      margin-bottom: 8px;
-      border-radius: 4px;
-      box-shadow: 0 0 4px rgba(0, 0, 0, 0.06)
-    }
+    margin-bottom: 10px;
   }
   .van-grid-item__content--center {
     border-radius: 8px;

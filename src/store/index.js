@@ -5,7 +5,7 @@ Vue.use(Vuex)
 
 // state在vuex中存储数据
 let state = {
-  walletBalance : 360,  // 钱包剩余
+  walletBalance : 180,  // 钱包剩余
   timeRemaining : 0.08,  // 剩余停车时长
   bindingPlates: 3,  // 绑定车牌数量
 }

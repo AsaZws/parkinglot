@@ -9,6 +9,9 @@ const Wallet = () => import('views/wallet/Wallet');
 const Resume = () => import('views/wallet/resume/Resume');
 const Ewallet = () => import('views/wallet/ewallet/Ewallet');
 const Invoice = () => import('views/wallet/invoice/Invoice');
+const Inform = () => import('views/wallet/inform/Inform');
+const Opinion = () => import('views/wallet/opinion/Opinion');
+const SubmitOpinions = () => import('views/wallet/opinion/submitOpinions/SubmitOpinions');
 
 Vue.use(VueRouter)
 
@@ -45,6 +48,20 @@ const routes = [
       {
         path: 'invoice',
         component: Invoice
+      },
+      {
+        path: 'inform',
+        component: Inform
+      },
+      {
+        path: 'opinion',
+        component: Opinion,
+        children: [
+          {
+            path: 'submitOpinions',
+            component: SubmitOpinions
+          }
+        ]
       }
     ]
   }

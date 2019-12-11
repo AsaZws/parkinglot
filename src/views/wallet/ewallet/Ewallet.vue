@@ -11,28 +11,28 @@
     <van-row>
       <van-col span="24">
         <p>余额(元)</p>
-        <strong>0.00</strong>
+        <strong>{{ userinfo.walletBalance }}.00</strong>
       </van-col>
     </van-row>
 
     <van-cell-group>
-      <van-cell title="充值" icon="location-o" is-link />
+      <van-cell title="充值" :icon="require('assets/images/recharge.png')" is-link />
     </van-cell-group>
 
-    <van-cell-group>
-      <van-switch-cell icon="location-o" v-model="checked" title="钱包支付" />
-      <van-switch-cell icon="location-o" v-model="checked" title="无感支付" />
+    <van-cell-group title="如果同时打开，优先钱包支付">
+      <van-switch-cell :icon="require('assets/images/wallet-pay.png')" v-model="checked1" title="钱包支付" />
+      <van-switch-cell :icon="require('assets/images/fast.png')" v-model="checked2" title="无感支付" />
     </van-cell-group>
 
-    <van-cell-group>
-      <van-cell title="建行无感支付" icon="location-o" is-link />
+    <van-cell-group title="第三方应用">
+      <van-cell title="建行无感支付" :icon="require('assets/images/my_month_cbb.png')" is-link />
     </van-cell-group>
 
   </div>
 </template>
 <script>
 import Vue from 'vue';
-// import Store from 'store/index';
+import Store from 'store/index';
 import { Row, Col, NavBar, Cell, CellGroup, SwitchCell } from 'vant';
 
 Vue.use(Row).use(Col).use(NavBar).use(Cell).use(CellGroup).use(SwitchCell);
@@ -43,7 +43,12 @@ export default {
   },
   data() {
     return {
-      checked: true
+      checked1: true,
+      checked2: true,
+      // 用户信息
+      userinfo: {
+        walletBalance: Store.state.walletBalance,  // 钱包余额
+      },
     }
   },
   methods: {
@@ -61,8 +66,6 @@ export default {
   }
 }
 </script>
-
-
 <style lang="less">
 .e-wallet {
   position: absolute;
@@ -88,8 +91,10 @@ export default {
       }
     }
   }
-  .van-cell-group {
-    margin-bottom: 12px;
+  // 修改vant cell图标大小
+  .van-icon__image {
+    width: 24px;
+    height: 24px;
   }
 }
 </style>
