@@ -7,7 +7,7 @@
       @click-left="onClickLeft"
     />
   <div class="container">
-    <van-cell-group title="对停车费有疑问">
+    <van-cell-group title="title">
       <van-field
         v-model="message"
         rows="2"
@@ -38,6 +38,10 @@ Vue.use(NavBar).use(Uploader).use(Toast).use(Cell).use(CellGroup).use(Field);
 
 export default {
   name: 'submitOpinions',
+  props: {
+    title: String,
+    required: true
+  },
   data () {
     return {
       message: '',

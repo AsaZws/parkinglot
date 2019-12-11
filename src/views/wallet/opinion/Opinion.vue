@@ -7,10 +7,15 @@
       @click-left="onClickLeft"
     />
     <van-cell-group title="请选择反馈内容">
-      <van-cell title="对停车费有疑问" size="large" clickable is-link to="/wallet/opinion/submitOpinions" />
-      <van-cell title="无法开具电子发票" size="large" clickable is-link to="/wallet/opinion/submitOpinions" />
-      <van-cell title="入场记录有问题" size="large" clickable is-link to="/wallet/opinion/submitOpinions" />
-      <van-cell title="其他问题" size="large" clickable is-link to="/wallet/opinion/submitOpinions" />
+      <van-cell 
+        v-for="(item, index) in opinionTitle" 
+        :title="item.opinionName" 
+        
+        :to="item.opinionRouter" 
+        :key="index" 
+        clickable 
+        is-link 
+      />
     </van-cell-group>
 
     <transition name="router-slid" mode="out-in">
@@ -29,7 +34,24 @@ export default {
   name: 'opinion',
   data () {
     return {
-      
+      opinionTitle: [
+        {
+          opinionName: "对停车费有疑问",
+          opinionRouter: "/wallet/opinion/submitOpinions/:id"
+        },
+        {
+          opinionName: "无法开具电子发票",
+          opinionRouter: "/wallet/opinion/submitOpinions"
+        },
+        {
+          opinionName: "无法开具电子发票",
+          opinionRouter: "/wallet/opinion/submitOpinions"
+        },
+        {
+          opinionName: "其他问题",
+          opinionRouter: "/wallet/opinion/submitOpinions"
+        }
+      ]
     }
   },
   methods: {

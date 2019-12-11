@@ -5,7 +5,6 @@ const Index = () => import('views/index/Index');
 const Wallet = () => import('views/wallet/Wallet');
 // const Home = () => import('views/home/Home');
 // 钱包下二级路由
-// const walletIndex = () => import('views/wallet/index/Index');
 const Resume = () => import('views/wallet/resume/Resume');
 const Ewallet = () => import('views/wallet/ewallet/Ewallet');
 const Invoice = () => import('views/wallet/invoice/Invoice');
