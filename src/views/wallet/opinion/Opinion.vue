@@ -10,8 +10,7 @@
       <van-cell 
         v-for="(item, index) in opinionTitle" 
         :title="item.opinionName" 
-        
-        :to="item.opinionRouter" 
+        :to="item.opinionRouter + '/?title=' + item.opinionName" 
         :key="index" 
         clickable 
         is-link 
@@ -37,14 +36,14 @@ export default {
       opinionTitle: [
         {
           opinionName: "对停车费有疑问",
-          opinionRouter: "/wallet/opinion/submitOpinions/:id"
+          opinionRouter: "/wallet/opinion/submitOpinions"
         },
         {
           opinionName: "无法开具电子发票",
           opinionRouter: "/wallet/opinion/submitOpinions"
         },
         {
-          opinionName: "无法开具电子发票",
+          opinionName: "对停车记录有疑问",
           opinionRouter: "/wallet/opinion/submitOpinions"
         },
         {
