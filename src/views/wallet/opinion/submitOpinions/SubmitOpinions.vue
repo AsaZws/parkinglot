@@ -19,12 +19,14 @@
       />
     </van-cell-group>
 
+    <div class="van-cell-group__title">截图({{ fileList.length }}/{{ maxCount }})</div>
     <van-uploader 
       v-model="fileList" 
-      :max-count="2" 
+      :max-count="maxCount" 
       multiple 
       :before-read="beforeRead" 
     />
+    <van-button style="margin-top: 24px;" type="primary" size="large" color="#5093FF">提交</van-button>
   </div>
 
   </div>
@@ -33,8 +35,8 @@
 <script>
 import Vue from 'vue';
 
-import { NavBar, Uploader, Toast, Cell, CellGroup, Field } from 'vant';
-Vue.use(NavBar).use(Uploader).use(Toast).use(Cell).use(CellGroup).use(Field);
+import { NavBar, Uploader, Toast, Cell, CellGroup, Field, Button } from 'vant';
+Vue.use(NavBar).use(Uploader).use(Toast).use(Cell).use(CellGroup).use(Field).use(Button);
 
 export default {
   name: 'submitOpinions',
@@ -42,8 +44,10 @@ export default {
     return {
       message: '',
       fileList: [
+        { url: 'https://img.yzcdn.cn/vant/leaf.jpg' },
         { url: 'https://img.yzcdn.cn/vant/leaf.jpg' }
-      ]
+        ],
+      maxCount: 3
     }
   },
   methods: {

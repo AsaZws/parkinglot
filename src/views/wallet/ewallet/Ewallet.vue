@@ -16,26 +16,45 @@
     </van-row>
 
     <van-cell-group>
-      <van-cell title="充值" :icon="require('assets/images/recharge.png')" is-link />
+      <van-cell 
+        title="充值" 
+        to="/wallet/ewallet/recharge" 
+        :icon="require('assets/images/recharge.png')" 
+        is-link 
+      />
     </van-cell-group>
 
     <van-cell-group title="如果同时打开，优先钱包支付">
-      <van-switch-cell :icon="require('assets/images/wallet-pay.png')" v-model="checked1" title="钱包支付" />
-      <van-switch-cell :icon="require('assets/images/fast.png')" v-model="checked2" title="无感支付" />
+      <van-switch-cell 
+        :icon="require('assets/images/wallet-pay.png')" 
+        v-model="checked1" 
+        @click="onInput(checked1, '钱包支付')" 
+        title="钱包支付" 
+      />
+      <van-switch-cell 
+        :icon="require('assets/images/fast.png')" 
+        v-model="checked2" 
+        @click="onInput(checked2, '无感支付')" 
+        title="无感支付" 
+      />
     </van-cell-group>
 
     <van-cell-group title="第三方应用">
       <van-cell title="建行无感支付" :icon="require('assets/images/my_month_cbb.png')" is-link />
     </van-cell-group>
 
+    <transition name="router-slid" mode="out-in">
+      <router-view></router-view>
+    </transition>
+
   </div>
 </template>
 <script>
 import Vue from 'vue';
 import Store from 'store/index';
-import { Row, Col, NavBar, Cell, CellGroup, SwitchCell } from 'vant';
+import { Row, Col, NavBar, Cell, CellGroup, SwitchCell, Toast } from 'vant';
 
-Vue.use(Row).use(Col).use(NavBar).use(Cell).use(CellGroup).use(SwitchCell);
+Vue.use(Row).use(Col).use(NavBar).use(Cell).use(CellGroup).use(SwitchCell).use(Toast);
 
 export default {
   name: 'resume',
@@ -55,18 +74,17 @@ export default {
     onClickLeft() {
       this.$router.go(-1);
     },
-    onInput(checked) {
-      Dialog.confirm({
-        title: '提醒',
-        message: '是否切换开关？'
-      }).then(() => {
-        this.checked = checked;
-      });
+    onInput(checked, text) {
+      if(!checked) {
+        Toast.success(text + "绑定成功");
+      } else {
+        Toast.fail(text + '取消绑定');
+      }
     }
   }
 }
 </script>
-<style lang="less">
+<style lang="less" scoped>
 .e-wallet {
   position: absolute;
   top: 0;

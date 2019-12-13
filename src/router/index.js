@@ -3,13 +3,20 @@ import VueRouter from 'vue-router'
 
 const Index = () => import('views/index/Index');
 const Wallet = () => import('views/wallet/Wallet');
-// const Home = () => import('views/home/Home');
 // 钱包下二级路由
+// 个人信息
 const Resume = () => import('views/wallet/resume/Resume');
+// 电子钱包
 const Ewallet = () => import('views/wallet/ewallet/Ewallet');
+// 电子钱包下充值
+const Recharge = () => import('views/wallet/ewallet/recharge/Recharge');
+// 电子发票
 const Invoice = () => import('views/wallet/invoice/Invoice');
+// 通知设置
 const Inform = () => import('views/wallet/inform/Inform');
+// 意见反馈
 const Opinion = () => import('views/wallet/opinion/Opinion');
+// 意见反馈下意见提交
 const SubmitOpinions = () => import('views/wallet/opinion/submitOpinions/SubmitOpinions');
 
 Vue.use(VueRouter)
@@ -42,7 +49,13 @@ const routes = [
       },
       {
         path: 'ewallet',
-        component: Ewallet
+        component: Ewallet,
+        children: [
+          {
+            path: 'recharge',
+            component: Recharge
+          }
+        ]
       },
       {
         path: 'invoice',
