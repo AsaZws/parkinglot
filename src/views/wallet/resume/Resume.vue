@@ -51,7 +51,7 @@ export default {
 }
 </script>
 
-<style lang="less">
+<style lang="less" scoped>
 #resume {
   position: absolute;
   top: 0;

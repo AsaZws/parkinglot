@@ -85,7 +85,7 @@ export default {
 
 </script>
 
-<style lang="less">
+<style lang="less" scoped>
 .submitOpinions {
   position: absolute;
   top: 0;

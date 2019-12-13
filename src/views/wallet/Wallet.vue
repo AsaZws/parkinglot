@@ -85,7 +85,7 @@ export default {
 }
 </script>
 
-<style lang="less">
+<style lang="less" scoped>
 #wallet {
   // 头像
   .head-portrait {

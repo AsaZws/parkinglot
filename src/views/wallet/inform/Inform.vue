@@ -34,7 +34,7 @@ export default {
 }
 </script>
 
-<style lang="less">
+<style lang="less" scoped>
 .inform {
   position: absolute;
   top: 0;
