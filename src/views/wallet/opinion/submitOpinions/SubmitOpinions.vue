@@ -26,7 +26,15 @@
       multiple 
       :before-read="beforeRead" 
     />
-    <van-button style="margin-top: 24px;" type="primary" size="large" color="#5093FF">提交</van-button>
+    <van-button 
+      style="margin-top: 24px;" 
+      type="primary" 
+      size="large" 
+      color="#5093FF"
+      @click="submitClick"
+    >
+    提交
+    </van-button>
   </div>
 
   </div>
@@ -54,17 +62,18 @@ export default {
     onClickLeft() {
       this.$router.go(-1);
     },
+
     afterRead(file) {
       // 此时可以自行将文件上传至服务器
       console.log(file);
     },
+
     // 返回布尔值
     beforeRead(file) {
       if (file.type !== 'image/jpeg') {
         Toast('请上传 jpg 格式图片');
         return false;
       }
-    
       return true;
     },
 
@@ -78,6 +87,20 @@ export default {
           resolve();
         }
       });
+    },
+
+    submitClick() {
+      if (this.message.length < 10) {
+        Toast.fail({
+          message: '请填写10个字以上的问题描述',
+          forbidClick: true
+        });
+      } else {
+        Toast.success({
+          message: '提交成功，我们将尽快为您处理',
+          forbidClick: true
+        });
+      }
     }
 
   }
