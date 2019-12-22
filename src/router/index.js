@@ -10,6 +10,8 @@ const Resume = () => import('views/wallet/resume/Resume');
 const Ewallet = () => import('views/wallet/ewallet/Ewallet');
 // 电子钱包下充值
 const Recharge = () => import('views/wallet/ewallet/recharge/Recharge');
+// 电子钱包下充值明细
+const RechargeSheet = () => import('views/wallet/ewallet/rechargeSheet/RechargeSheet');
 // 电子发票
 const Invoice = () => import('views/wallet/invoice/Invoice');
 // 通知设置
@@ -54,6 +56,10 @@ const routes = [
           {
             path: 'recharge',
             component: Recharge
+          },
+          {
+            path: 'rechargeSheet',
+            component: RechargeSheet
           }
         ]
       },
