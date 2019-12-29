@@ -68,7 +68,7 @@ export default {
       show: false,
       // 用户信息
       userinfo: {
-        title: "拾光",
+        title: "前海SPOM",
         headImg: require('assets/images/logo.png'),
         walletBalance: Store.state.walletBalance,  // 钱包余额
         bindingPlates: Store.state.bindingPlates,  // 绑定车牌数
@@ -96,6 +96,9 @@ export default {
     .head-img {
       padding: 8px;
       background: rgba(0, 0, 0, 0.05);
+    }
+    .van-ellipsis {
+      color: #333;
     }
   }
   // 钱包余额，绑定车辆，剩余时长

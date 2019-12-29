@@ -1,11 +1,13 @@
 <template>
   <div class='recharge'>
+    
     <van-nav-bar
       title="钱包充值"
       left-text="返回"
       left-arrow
       @click-left="onClickLeft"
     />
+
     <van-cell-group>
       <van-field
         readonly
@@ -46,8 +48,13 @@
     </div>
 
     <div class="container">
-      <van-button style="margin-top: 24px;" type="primary" size="large" color="#5093FF">立即充值</van-button>
+      <van-button 
+        style="margin-top: 24px;" 
+        type="primary" 
+        size="large" 
+        color="#5093FF">立即充值</van-button>
     </div>
+
   </div>
 </template>
 
