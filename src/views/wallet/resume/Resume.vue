@@ -19,10 +19,14 @@
         </van-cell>
       </van-cell-group>
       <van-cell-group class="resume-magges">
-        <van-cell title="昵称" value="拾光" />
-        <van-cell title="性别" value="男" />
-        <van-cell title="电话号码" value="17764810319" />
-        <van-cell title="国家" value="中国-重庆" />
+
+        <van-cell 
+          v-for="(item, index) in message" 
+          :key="index" 
+          :title="item.title" 
+          :value="item.value"
+        />
+        
       </van-cell-group>
       <van-button style="margin-top: 24px;" type="primary" size="large" color="#5093FF">获取微信头像与昵称</van-button>
     </div>
@@ -41,6 +45,24 @@ export default {
   },
   data() {
     return {
+      message: [
+        {
+          title: '昵称',
+          value: '拾光'
+        },
+        {
+          title: '性别',
+          value: '男'
+        },
+        {
+          title: '电话号码',
+          value: '17764810319'
+        },
+        {
+          title: '国家',
+          value: '中国-重庆'
+        }
+      ]
     }
   },
   methods: {
