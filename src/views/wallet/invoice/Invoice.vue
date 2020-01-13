@@ -23,7 +23,7 @@
           v-for="(item, index) in list"
           clickable
           :key="item"
-          :title="`复选框 ${item}`"
+          :title="` ${item}`"
           @click="toggle(index)"
         >
           <van-checkbox
