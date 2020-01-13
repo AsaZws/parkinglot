@@ -14,11 +14,11 @@
         clickable
         label="充值金额:"
         placeholder="请输入充值金额(元)"
-        :value="value"
+        :value="money"
         @touchstart.native.stop="show = true"
       />
       <van-number-keyboard
-        v-model="value"
+        v-model="money"
         :show="show"
         :maxlength="4"
         @blur="show = false"
@@ -28,9 +28,9 @@
     <van-row type="flex" justify="space-between">
       <van-col 
         align="center" 
-        v-for="(item, index) in moneys"
+        v-for="(item, index) in moneys" 
         :key="index"
-        @click="inputMoney(index, item)"
+        @click="inputMoney(index, item)" 
         :class="{active: index === isActive}"
       >
         ¥{{ item }}
@@ -68,11 +68,11 @@ export default {
   name:'recharge',
   data(){
    return {
-      show: false,
-      isActive: -1,
-      value: '',
-      moneys: [ 100, 200, 400, 500, 800, 1000, 2000, 5000 ],
-      rechargePrompt: [
+      show: false,  // 隐藏默认键盘
+      isActive: -1,  // 默认选择金额按钮不高亮
+      money: '',  // 输入框金额
+      moneys: [ 100, 200, 400, 500, 800, 1000, 2000, 5000 ],  // 设置选择金额按钮的值
+      rechargePrompt: [  // 提示文字
         "充值后，优先电子钱包缴费",
         "为确保电子钱包正常使用，请开启钱包支付",
         "余额不足时，不支持部分抵扣",
@@ -80,13 +80,21 @@ export default {
       ]
    }
   },
+  watch: {
+    // 监听输入框中钱包的值删除到为0的时候，取消金额高亮显示
+    money: function (val, oldVal) {
+      if (val == 0) { this.isActive = -1 }
+    }
+  },
   methods: {
+    // 顶部按钮点击
     onClickLeft() {
       this.$router.go(-1);
     },
+    // 点击选择金额按钮高亮和改变输入框中金额的值
     inputMoney(index, m) {
       this.isActive = index;
-      this.value = m + '';
+      this.money = m + '';
     }
   }
 }
