@@ -81,9 +81,9 @@ export default {
    }
   },
   watch: {
-    // 监听输入框中钱包的值删除到为0的时候，取消金额高亮显示
+    // 监听输入框中钱包的值删除到为空的时候，取消金额高亮显示
     money: function (val, oldVal) {
-      if (val == 0) { this.isActive = -1 }
+      if (val == '') { this.isActive = -1 }
     }
   },
   methods: {
