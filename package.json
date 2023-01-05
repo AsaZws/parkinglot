@@ -17,7 +17,7 @@
     "@vue/cli-plugin-babel": "^4.0.0",
     "@vue/cli-plugin-router": "^4.0.0",
     "@vue/cli-plugin-vuex": "^4.0.0",
-    "@vue/cli-service": "^4.0.0",
+    "@vue/cli-service": "^5.0.8",
     "babel-plugin-import": "^1.12.2",
     "less": "^3.0.4",
     "less-loader": "^5.0.0",
